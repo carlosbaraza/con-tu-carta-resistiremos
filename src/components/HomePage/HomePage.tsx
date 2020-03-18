@@ -135,17 +135,17 @@ export const HomePage = (props: Props) => {
           </CTA>
           <SectionRow>
             <Card>
-              <CardTitle>Acompañados</CardTitle>
+              <CardTitle>Solos pero acompañados</CardTitle>
               <p>
                 Muchos enfermos de COVID-19 estan aislados en hospitales para evitar el contagio,
                 sin contacto con sus familiares o amigos. Solo reciben una visita al día de un
-                sanitario.
+                sanitario. Una carta anónima puede ayudarles a luchar.
               </p>
             </Card>
             <Card>
               <CardTitle>Juntos resistiremos</CardTitle>
               <p>
-                Una carta anonima puede darle la fuerza a una de estas personas para seguir luchando
+                Una carta anónima puede darle la fuerza a una de estas personas para seguir luchando
                 contra este dichoso virus.
               </p>
             </Card>
