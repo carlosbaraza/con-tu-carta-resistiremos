@@ -27,6 +27,10 @@ const CardContent = styled(MUCardContent)`
   background-size: 100px 20px;
   background-image: linear-gradient(90deg, #f3f3f3 0.05em, transparent 0.05em),
     linear-gradient(0deg, #f3f3f3 0.05em, transparent 0.05em);
+
+  > * + * {
+    margin-top: ${theme.spacing.s};
+  }
 `;
 
 const CardActions = styled(MUCardActions)`
@@ -46,6 +50,12 @@ const Title = styled.h2`
 const Body = styled.p`
   font-family: 'Dancing Script', cursive;
   font-size: ${theme.font.size.s2};
+  white-space: pre-wrap;
+  line-height: 1.5;
+
+  @media (min-width: 768px) {
+    font-size: ${theme.font.size.s3};
+  }
 `;
 
 type Props = {

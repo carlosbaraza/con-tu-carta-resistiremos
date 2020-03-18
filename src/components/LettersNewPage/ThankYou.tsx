@@ -30,7 +30,7 @@ export const ThankYou = (props: Props) => {
         Tu carta va a ser revisada por nuestro personal sanitario
       </Typography>
       <SmallCaption>
-        Cuando haya sido aprovada, aparecerá en la página y será impresa en
+        Cuando haya sido aprobada, aparecerá en la página y será impresa en
         muchos hospitales para que llegue a cientos de enfermos.
       </SmallCaption>
     </Container>
