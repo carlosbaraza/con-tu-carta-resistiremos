@@ -1,12 +1,13 @@
-import React from "react";
-import { makeStyles } from "@material-ui/core/styles";
-import MUCard from "@material-ui/core/Card";
-import MUCardActions from "@material-ui/core/CardActions";
-import MUCardContent from "@material-ui/core/CardContent";
-import Button from "@material-ui/core/Button";
-import Typography from "@material-ui/core/Typography";
-import styled from "styled-components";
-import { theme } from "../../theme/theme";
+import React from 'react';
+import { makeStyles } from '@material-ui/core/styles';
+import MUCard from '@material-ui/core/Card';
+import MUCardActions from '@material-ui/core/CardActions';
+import MUCardContent from '@material-ui/core/CardContent';
+import Button from '@material-ui/core/Button';
+import Typography from '@material-ui/core/Typography';
+import styled from 'styled-components';
+import { theme } from '../../theme/theme';
+import { LetterPublic } from '../../types';
 
 const Card = styled(MUCard)`
   width: 300px;
@@ -38,17 +39,21 @@ const DateTitle = styled.span`
 `;
 
 const Title = styled.h2`
-  font-family: "Dancing Script", cursive;
+  font-family: 'Dancing Script', cursive;
   font-weight: bold;
   font-size: ${theme.font.size.s6};
 `;
 
 const Body = styled.p`
-  font-family: "Dancing Script", cursive;
+  font-family: 'Dancing Script', cursive;
   font-size: ${theme.font.size.s2};
 `;
 
-export function Letter() {
+type Props = {
+  letter: LetterPublic;
+};
+
+export function Letter(props: Props) {
   return (
     <Card>
       <CardContent>
@@ -56,10 +61,10 @@ export function Letter() {
           14 Marzo 2020
         </Typography>
         <Typography variant="h5" component={Title}>
-          Con mucha ilusion
+          {props.letter.title}
         </Typography>
         <Typography variant="body2" component={Body}>
-          Vamos a salir de esta todos juntos...
+          {props.letter.body}
         </Typography>
       </CardContent>
       <CardActions>
