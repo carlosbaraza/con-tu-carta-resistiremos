@@ -14,7 +14,7 @@ const Card = styled(MUCard)`
   flex-basis: 100%;
 
   & + & {
-    margin-top: ${theme.spacing.m};
+    margin-top: ${theme.spacing.m} !important;
   }
 
   @media (min-width: 768px) {
@@ -29,7 +29,7 @@ const CardContent = styled(MUCardContent)`
     linear-gradient(0deg, #f3f3f3 0.05em, transparent 0.05em);
 
   > * + * {
-    margin-top: ${theme.spacing.s};
+    margin-top: ${theme.spacing.s} !important;
   }
 `;
 
@@ -42,16 +42,16 @@ const DateTitle = styled.span`
 `;
 
 const Title = styled.h2`
-  font-family: 'Dancing Script', cursive;
-  font-weight: bold;
-  font-size: ${theme.font.size.s6};
+  font-family: 'Dancing Script', cursive !important;
+  font-weight: bold !important;
+  font-size: ${theme.font.size.s6} !important;
 `;
 
 const Body = styled.p`
-  font-family: 'Dancing Script', cursive;
-  font-size: ${theme.font.size.s2};
-  white-space: pre-wrap;
-  line-height: 1.5;
+  font-family: 'Dancing Script', cursive !important;
+  font-size: ${theme.font.size.s2} !important;
+  white-space: pre-wrap !important;
+  line-height: 1.5 !important;
 
   @media (min-width: 768px) {
     font-size: ${theme.font.size.s3};
