@@ -16,6 +16,7 @@ import CreateIcon from "@material-ui/icons/Create";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles, useTheme, Theme, createStyles } from "@material-ui/core/styles";
+import { Link as RouterLink } from "react-router-dom";
 
 const drawerWidth = 240;
 
@@ -77,13 +78,13 @@ export function AppFrame(props: ResponsiveDrawerProps) {
       <div className={classes.toolbar} />
       <Divider />
       <List>
-        <ListItem button>
+        <ListItem button component={RouterLink} to="/cartas/new">
           <ListItemIcon>
             <CreateIcon />
           </ListItemIcon>
           <ListItemText primary="Escribe tu carta" />
         </ListItem>
-        <ListItem button>
+        <ListItem button component={RouterLink} to="/cartas">
           <ListItemIcon>
             <MailIcon />
           </ListItemIcon>
