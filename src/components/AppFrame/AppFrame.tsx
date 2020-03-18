@@ -70,6 +70,14 @@ export function AppFrame(props: ResponsiveDrawerProps) {
   const [mobileOpen, setMobileOpen] = React.useState(false);
   const location = useLocation();
 
+  let title = "";
+  if (location.pathname.includes("/cartas")) {
+    title = "Cartas";
+  }
+  if (location.pathname.includes("/cartas/new")) {
+    title = "Escribe tu carta";
+  }
+
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
   };
@@ -119,7 +127,7 @@ export function AppFrame(props: ResponsiveDrawerProps) {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" noWrap>
-            Cartas
+            {title}
           </Typography>
         </Toolbar>
       </AppBar>
