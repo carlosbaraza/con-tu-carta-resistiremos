@@ -16,7 +16,7 @@ import CreateIcon from "@material-ui/icons/Create";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles, useTheme, Theme, createStyles } from "@material-ui/core/styles";
-import { Link as RouterLink, useLocation, NavLink } from "react-router-dom";
+import { useLocation, NavLink } from "react-router-dom";
 
 const drawerWidth = 240;
 

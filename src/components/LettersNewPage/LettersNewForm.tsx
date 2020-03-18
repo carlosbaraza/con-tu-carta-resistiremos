@@ -11,7 +11,7 @@ const Form = styled.form`
   flex-direction: column;
 
   > * + * {
-    margin-top: ${theme.spacing.m};
+    margin-top: ${theme.spacing.m} !important;
   }
 `;
 
