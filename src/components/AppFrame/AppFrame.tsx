@@ -87,6 +87,10 @@ export function AppFrame(props: ResponsiveDrawerProps) {
     setMobileOpen(!mobileOpen);
   };
 
+  const closeMobileDrawer = () => {
+    setMobileOpen(false);
+  };
+
   const drawer = (
     <div>
       <div className={classes.toolbar} />
@@ -96,6 +100,7 @@ export function AppFrame(props: ResponsiveDrawerProps) {
           button
           component={NavLink}
           to="/cartas/new"
+          onClick={closeMobileDrawer}
           activeClassName="Mui-selected"
         >
           <ListItemIcon>
@@ -107,6 +112,7 @@ export function AppFrame(props: ResponsiveDrawerProps) {
           button
           component={NavLink}
           to="/cartas"
+          onClick={closeMobileDrawer}
           activeClassName="Mui-selected"
           exact
         >
