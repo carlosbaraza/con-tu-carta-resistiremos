@@ -79,6 +79,40 @@ const CardTitle = styled.h3`
   margin: 0;
 `;
 
+const TemporaryBanner = styled.h1`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: ${theme.spacing.xl};
+  width: 100%;
+
+  h3 {
+    font-size: 30px;
+    font-weight: normal;
+  }
+
+  a {
+    color: ${theme.color.secondary};
+    text-decoration: none;
+    font-size: 16px;
+  }
+
+  @media (min-width: 768px) {
+    a {
+      font-size: 30px;
+    }
+  }
+
+  > * {
+    margin: 0;
+    word-wrap: break-word;
+  }
+
+  > * + * {
+    margin-top: ${theme.spacing.l};
+  }
+`;
+
 type Props = {};
 
 export const HomePage = (props: Props) => {
@@ -87,10 +121,16 @@ export const HomePage = (props: Props) => {
       <Header />
       <InnerContainer>
         <Section>
-          <CTA color="secondary" variant="contained" component={Link} to="/cartas/new">
+          <TemporaryBanner>
+            <h3>Mientras terminamos la página, puedes enviar tus cartas por correo a </h3>
+            <a href="mailto:cartas.venceremos.covid19@gmail.com">
+              cartas.venceremos.covid19@gmail.com
+            </a>
+          </TemporaryBanner>
+          <CTA color="secondary" variant="contained" component={Link} to="/cartas/new" disabled>
             <ButtonContent>
               <CreateIcon />
-              <span>Escribe tu carta</span>
+              <span>Escribe tu carta (trabajando en ello)</span>
             </ButtonContent>
           </CTA>
           <SectionRow>
@@ -131,8 +171,8 @@ export const HomePage = (props: Props) => {
               </p>
             </Card>
           </SectionRow>
-          <CTA color="default" variant="contained" component={Link} to="/cartas">
-            <ButtonContent>Otras cartas anonimas</ButtonContent>
+          <CTA color="default" variant="contained" component={Link} to="/cartas" disabled>
+            <ButtonContent>Otras cartas anonimas (trabajando en ello)</ButtonContent>
           </CTA>
         </Section>
       </InnerContainer>
