@@ -1,12 +1,26 @@
 import React from "react";
 import styled from "styled-components";
+import { Letter } from "../components/Letter/Letter";
 
 const Container = styled.div`
-  flex: 1;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 `;
 
 type Props = {};
 
 export const LettersListPage = (props: Props) => {
-  return <Container>Cartas</Container>;
+  return (
+    <Container>
+      <Letter />
+      <Letter />
+      <Letter />
+      <Letter />
+      <Letter />
+      <Letter />
+      <Letter />
+      <Letter />
+    </Container>
+  );
 };
