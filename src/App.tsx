@@ -1,17 +1,34 @@
-import React from "react";
-import "./App.css";
+import React from 'react';
+import './App.css';
 
-import { ThemeProvider, Checkbox } from "@material-ui/core";
-import { muiTheme } from "./theme/mui-theme";
-import { LettersNewPage } from "./components/LettersNewPage/LettersNewPage";
-import { BrowserRouter as Router, Switch, Route, useLocation } from "react-router-dom";
-import { AppFrame } from "./components/AppFrame/AppFrame";
-import { HomePage } from "./components/HomePage/HomePage";
-import { LettersListPage } from "./components/LettersListPage/LettersListPage";
+import { ThemeProvider, Checkbox } from '@material-ui/core';
+import { muiTheme } from './theme/mui-theme';
+import { LettersNewPage } from './components/LettersNewPage/LettersNewPage';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  useLocation
+} from 'react-router-dom';
+import { AppFrame } from './components/AppFrame/AppFrame';
+import { HomePage } from './components/HomePage/HomePage';
+import { LettersListPage } from './components/LettersListPage/LettersListPage';
+import ReactGA from 'react-ga';
+import { createBrowserHistory } from 'history';
+
+ReactGA.initialize('UA-161162516-1');
 
 function App() {
   return (
     <Router>
+      <Route
+        path="/"
+        render={({ location }) => {
+          ReactGA.set({ page: location.pathname + location.search });
+          ReactGA.pageview(location.pathname);
+          return null;
+        }}
+      />
       <ThemeProvider theme={muiTheme}>
         <Switch>
           <Route exact path="/">
