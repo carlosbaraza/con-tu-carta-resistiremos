@@ -1,7 +1,8 @@
 import React from "react";
 import styled from "styled-components";
-import { AppFrame } from "../components/AppFrame/AppFrame";
+import { AppFrame } from "../AppFrame/AppFrame";
 import { Typography } from "@material-ui/core";
+import { LettersNewForm } from "./LettersNewForm";
 
 const Container = styled.div`
   flex: 1;
@@ -10,5 +11,9 @@ const Container = styled.div`
 type Props = {};
 
 export const LettersNewPage = (props: Props) => {
-  return <Container>Form</Container>;
+  return (
+    <Container>
+      <LettersNewForm />
+    </Container>
+  );
 };

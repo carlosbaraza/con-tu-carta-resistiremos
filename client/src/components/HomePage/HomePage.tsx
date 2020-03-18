@@ -1,9 +1,9 @@
 import React from "react";
 import styled from "styled-components";
-import { Header } from "../components/HomePage/Header";
-import { Footer } from "../components/HomePage/Footer";
+import { Header } from "./Header";
+import { Footer } from "./Footer";
 import { Button } from "@material-ui/core";
-import { theme } from "../theme/theme";
+import { theme } from "../../theme/theme";
 import CreateIcon from "@material-ui/icons/Create";
 import { Link } from "react-router-dom";
 

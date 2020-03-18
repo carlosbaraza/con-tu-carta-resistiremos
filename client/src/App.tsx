@@ -3,11 +3,11 @@ import "./App.css";
 
 import { ThemeProvider, Checkbox } from "@material-ui/core";
 import { muiTheme } from "./theme/mui-theme";
-import { LettersNewPage } from "./pages/LettersNewPage";
+import { LettersNewPage } from "./components/LettersNewPage/LettersNewPage";
 import { BrowserRouter as Router, Switch, Route, useLocation } from "react-router-dom";
 import { AppFrame } from "./components/AppFrame/AppFrame";
-import { HomePage } from "./pages/HomePage";
-import { LettersListPage } from "./pages/LettersListPage";
+import { HomePage } from "./components/HomePage/HomePage";
+import { LettersListPage } from "./components/LettersListPage/LettersListPage";
 
 function App() {
   return (

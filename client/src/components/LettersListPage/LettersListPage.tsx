@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { Letter } from "../components/Letter/Letter";
+import { Letter } from "../Letter/Letter";
 
 const Container = styled.div`
   display: flex;
