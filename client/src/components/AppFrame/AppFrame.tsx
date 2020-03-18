@@ -16,7 +16,7 @@ import CreateIcon from "@material-ui/icons/Create";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles, useTheme, Theme, createStyles } from "@material-ui/core/styles";
-import { Link as RouterLink } from "react-router-dom";
+import { Link as RouterLink, useLocation, NavLink } from "react-router-dom";
 
 const drawerWidth = 240;
 
@@ -68,6 +68,7 @@ export function AppFrame(props: ResponsiveDrawerProps) {
   const classes = useStyles();
   const theme = useTheme();
   const [mobileOpen, setMobileOpen] = React.useState(false);
+  const location = useLocation();
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
@@ -78,13 +79,13 @@ export function AppFrame(props: ResponsiveDrawerProps) {
       <div className={classes.toolbar} />
       <Divider />
       <List>
-        <ListItem button component={RouterLink} to="/cartas/new">
+        <ListItem button component={NavLink} to="/cartas/new" activeClassName="Mui-selected">
           <ListItemIcon>
             <CreateIcon />
           </ListItemIcon>
           <ListItemText primary="Escribe tu carta" />
         </ListItem>
-        <ListItem button component={RouterLink} to="/cartas">
+        <ListItem button component={NavLink} to="/cartas" activeClassName="Mui-selected" exact>
           <ListItemIcon>
             <MailIcon />
           </ListItemIcon>
