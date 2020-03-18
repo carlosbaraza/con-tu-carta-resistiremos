@@ -1,11 +1,11 @@
-import React from "react";
-import styled from "styled-components";
-import { Header } from "./Header";
-import { Footer } from "./Footer";
-import { Button } from "@material-ui/core";
-import { theme } from "../../theme/theme";
-import CreateIcon from "@material-ui/icons/Create";
-import { Link } from "react-router-dom";
+import React from 'react';
+import styled from 'styled-components';
+import { Header } from './Header';
+import { Footer } from './Footer';
+import { Button } from '@material-ui/core';
+import { theme } from '../../theme/theme';
+import CreateIcon from '@material-ui/icons/Create';
+import { Link } from 'react-router-dom';
 
 const Container = styled.div`
   display: flex;
@@ -121,32 +121,32 @@ export const HomePage = (props: Props) => {
       <Header />
       <InnerContainer>
         <Section>
-          <TemporaryBanner>
-            <h3>Mientras terminamos la página, puedes enviar tus cartas por correo a </h3>
-            <a href="mailto:cartas.venceremos.covid19@gmail.com">
-              cartas.venceremos.covid19@gmail.com
-            </a>
-          </TemporaryBanner>
-          <CTA color="secondary" variant="contained" component={Link} to="/cartas/new" disabled>
+          <CTA
+            color="secondary"
+            variant="contained"
+            component={Link}
+            to="/cartas/new"
+          >
             <ButtonContent>
               <CreateIcon />
-              <span>Escribe tu carta (trabajando en ello)</span>
+              <span>Escribe tu carta</span>
             </ButtonContent>
           </CTA>
           <SectionRow>
             <Card>
               <CardTitle>Solos pero acompañados</CardTitle>
               <p>
-                Muchos enfermos de COVID-19 estan aislados en hospitales para evitar el contagio,
-                sin contacto con sus familiares o amigos. Solo reciben una visita al día de un
-                sanitario. Una carta anónima puede ayudarles a luchar.
+                Muchos enfermos de COVID-19 estan aislados en hospitales para
+                evitar el contagio, sin contacto con sus familiares o amigos.
+                Solo reciben una visita al día de un sanitario. Una carta
+                anónima puede ayudarles a luchar.
               </p>
             </Card>
             <Card>
               <CardTitle>Juntos resistiremos</CardTitle>
               <p>
-                Una carta anónima puede darle la fuerza a una de estas personas para seguir luchando
-                contra este dichoso virus.
+                Una carta anónima puede darle la fuerza a una de estas personas
+                para seguir luchando contra este dichoso virus.
               </p>
             </Card>
           </SectionRow>
@@ -156,23 +156,30 @@ export const HomePage = (props: Props) => {
             <Card>
               <CardTitle>3000+ cartas anonimas</CardTitle>
               <p>
-                Mucha gente ya ha enviado sus cartas, haciendo llegar un pequeño aliento de
-                esperanza a cientos de enfermos.
+                Mucha gente ya ha enviado sus cartas, haciendo llegar un pequeño
+                aliento de esperanza a cientos de enfermos.
               </p>
             </Card>
             <Card>
               <CardTitle>Mucho personal sanitario comprometido</CardTitle>
               <p>
-                Estas cartas están siendo revisadas por much@s médicos, enfermer@s y auxiliares.
+                Estas cartas están siendo revisadas por much@s médicos,
+                enfermer@s y auxiliares.
               </p>
               <p>
-                Nuestro personal sanitario se compromete a imprimir muchas cartas para hacerlas
-                llegar a enfermos que no tienen teléfono movil.
+                Nuestro personal sanitario se compromete a imprimir muchas
+                cartas para hacerlas llegar a enfermos que no tienen teléfono
+                movil.
               </p>
             </Card>
           </SectionRow>
-          <CTA color="default" variant="contained" component={Link} to="/cartas" disabled>
-            <ButtonContent>Otras cartas anonimas (trabajando en ello)</ButtonContent>
+          <CTA
+            color="default"
+            variant="contained"
+            component={Link}
+            to="/cartas"
+          >
+            <ButtonContent>Otras cartas anonimas</ButtonContent>
           </CTA>
         </Section>
       </InnerContainer>
