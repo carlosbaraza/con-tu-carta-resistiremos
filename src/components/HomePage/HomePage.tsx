@@ -181,6 +181,17 @@ export const HomePage = (props: Props) => {
           >
             <ButtonContent>Otras cartas anónimas</ButtonContent>
           </CTA>
+          <CTA
+            color="secondary"
+            variant="contained"
+            component={Link}
+            to="/cartas/new"
+          >
+            <ButtonContent>
+              <CreateIcon />
+              <span>Escribe tu carta</span>
+            </ButtonContent>
+          </CTA>
         </Section>
       </InnerContainer>
 
