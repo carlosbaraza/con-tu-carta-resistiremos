@@ -145,7 +145,7 @@ export const HomePage = (props: Props) => {
             <Card>
               <CardTitle>Juntos resistiremos</CardTitle>
               <p>
-                Una carta anonima puede darle la fuerta a una de estas personas para seguir luchando
+                Una carta anonima puede darle la fuerza a una de estas personas para seguir luchando
                 contra este dichoso virus.
               </p>
             </Card>

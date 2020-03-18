@@ -33,11 +33,11 @@ type Props = {};
 export const Footer = (props: Props) => {
   return (
     <Container>
-      <p>Este proyecto no ánimo de lucro.</p>
+      <p>Este proyecto no tiene ánimo de lucro.</p>
 
       <p>
-        El único fin es hacer sentir un poco mejor a las personas que lo estan pasando mal como
-        consecuencia de la pandemia de SARS-CoV-2 de 2020.
+        El único fin de este proyecto es hacer sentir un poco mejor a las personas que lo estan
+        pasando mal como consecuencia de la pandemia de SARS-CoV-2 de 2020.
       </p>
       <p>
         Todo el código fuente está disponible en{" "}
