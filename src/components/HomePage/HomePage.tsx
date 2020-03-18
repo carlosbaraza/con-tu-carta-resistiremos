@@ -154,7 +154,7 @@ export const HomePage = (props: Props) => {
         <Section>
           <SectionRow>
             <Card>
-              <CardTitle>3000+ cartas anonimas</CardTitle>
+              <CardTitle>3000+ cartas anónimas</CardTitle>
               <p>
                 Mucha gente ya ha enviado sus cartas, haciendo llegar un pequeño
                 aliento de esperanza a cientos de enfermos.
@@ -179,7 +179,7 @@ export const HomePage = (props: Props) => {
             component={Link}
             to="/cartas"
           >
-            <ButtonContent>Otras cartas anonimas</ButtonContent>
+            <ButtonContent>Otras cartas anónimas</ButtonContent>
           </CTA>
         </Section>
       </InnerContainer>
