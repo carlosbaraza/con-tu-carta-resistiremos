@@ -1,46 +1,51 @@
-import React, { ReactNode } from "react";
-import AppBar from "@material-ui/core/AppBar";
-import CssBaseline from "@material-ui/core/CssBaseline";
-import Divider from "@material-ui/core/Divider";
-import Drawer from "@material-ui/core/Drawer";
-import Hidden from "@material-ui/core/Hidden";
-import IconButton from "@material-ui/core/IconButton";
-import AccountCircle from "@material-ui/icons/AccountCircle";
-import List from "@material-ui/core/List";
-import ListItem from "@material-ui/core/ListItem";
-import ListItemIcon from "@material-ui/core/ListItemIcon";
-import ListItemText from "@material-ui/core/ListItemText";
-import MailIcon from "@material-ui/icons/Mail";
-import MenuIcon from "@material-ui/icons/Menu";
-import CreateIcon from "@material-ui/icons/Create";
-import Toolbar from "@material-ui/core/Toolbar";
-import Typography from "@material-ui/core/Typography";
-import { makeStyles, useTheme, Theme, createStyles } from "@material-ui/core/styles";
-import { useLocation, NavLink } from "react-router-dom";
+import React, { ReactNode } from 'react';
+import AppBar from '@material-ui/core/AppBar';
+import CssBaseline from '@material-ui/core/CssBaseline';
+import Divider from '@material-ui/core/Divider';
+import Drawer from '@material-ui/core/Drawer';
+import Hidden from '@material-ui/core/Hidden';
+import IconButton from '@material-ui/core/IconButton';
+import AccountCircle from '@material-ui/icons/AccountCircle';
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemIcon from '@material-ui/core/ListItemIcon';
+import ListItemText from '@material-ui/core/ListItemText';
+import MailIcon from '@material-ui/icons/Mail';
+import MenuIcon from '@material-ui/icons/Menu';
+import CreateIcon from '@material-ui/icons/Create';
+import Toolbar from '@material-ui/core/Toolbar';
+import Typography from '@material-ui/core/Typography';
+import {
+  makeStyles,
+  useTheme,
+  Theme,
+  createStyles
+} from '@material-ui/core/styles';
+import { useLocation, NavLink } from 'react-router-dom';
 
 const drawerWidth = 240;
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
-      display: "flex"
+      display: 'flex'
     },
     drawer: {
-      [theme.breakpoints.up("sm")]: {
+      [theme.breakpoints.up('sm')]: {
         width: drawerWidth,
         flexShrink: 0
       }
     },
     appBar: {
-      [theme.breakpoints.up("sm")]: {
+      [theme.breakpoints.up('sm')]: {
         width: `calc(100% - ${drawerWidth}px)`,
         marginLeft: drawerWidth
       }
     },
     menuButton: {
       marginRight: theme.spacing(2),
-      [theme.breakpoints.up("sm")]: {
-        display: "none"
+      [theme.breakpoints.up('sm')]: {
+        display: 'none'
       }
     },
     toolbar: theme.mixins.toolbar,
@@ -70,12 +75,12 @@ export function AppFrame(props: ResponsiveDrawerProps) {
   const [mobileOpen, setMobileOpen] = React.useState(false);
   const location = useLocation();
 
-  let title = "";
-  if (location.pathname.includes("/cartas")) {
-    title = "Cartas";
+  let title = '';
+  if (location.pathname.includes('/cartas')) {
+    title = 'Cartas anónimas';
   }
-  if (location.pathname.includes("/cartas/new")) {
-    title = "Escribe tu carta";
+  if (location.pathname.includes('/cartas/new')) {
+    title = 'Escribe tu carta';
   }
 
   const handleDrawerToggle = () => {
@@ -87,17 +92,28 @@ export function AppFrame(props: ResponsiveDrawerProps) {
       <div className={classes.toolbar} />
       <Divider />
       <List>
-        <ListItem button component={NavLink} to="/cartas/new" activeClassName="Mui-selected">
+        <ListItem
+          button
+          component={NavLink}
+          to="/cartas/new"
+          activeClassName="Mui-selected"
+        >
           <ListItemIcon>
             <CreateIcon />
           </ListItemIcon>
           <ListItemText primary="Escribe tu carta" />
         </ListItem>
-        <ListItem button component={NavLink} to="/cartas" activeClassName="Mui-selected" exact>
+        <ListItem
+          button
+          component={NavLink}
+          to="/cartas"
+          activeClassName="Mui-selected"
+          exact
+        >
           <ListItemIcon>
             <MailIcon />
           </ListItemIcon>
-          <ListItemText primary="Cartas" />
+          <ListItemText primary="Cartas anónimas" />
         </ListItem>
       </List>
       {/* <Divider />
@@ -137,7 +153,7 @@ export function AppFrame(props: ResponsiveDrawerProps) {
           <Drawer
             container={container}
             variant="temporary"
-            anchor={theme.direction === "rtl" ? "right" : "left"}
+            anchor={theme.direction === 'rtl' ? 'right' : 'left'}
             open={mobileOpen}
             onClose={handleDrawerToggle}
             classes={{

@@ -1,12 +1,13 @@
-import React, { useState, FormEvent } from "react";
-import TextField from "@material-ui/core/TextField";
-import styled from "styled-components";
-import { theme } from "../../theme/theme";
-import TextareaAutosize from "@material-ui/core/TextareaAutosize";
-import SendIcon from "@material-ui/icons/Send";
-import { Button, CircularProgress } from "@material-ui/core";
-import { letterCreate } from "../../service/letters";
-import { useHistory } from "react-router";
+import React, { useState, FormEvent } from 'react';
+import TextField from '@material-ui/core/TextField';
+import styled from 'styled-components';
+import { theme } from '../../theme/theme';
+import TextareaAutosize from '@material-ui/core/TextareaAutosize';
+import SendIcon from '@material-ui/icons/Send';
+import { Button, CircularProgress } from '@material-ui/core';
+import { letterCreate } from '../../service/letters';
+import { useHistory } from 'react-router';
+import Indications from './Indications';
 
 type JoiError = {
   message: string;
@@ -34,7 +35,7 @@ const LetterTextField = styled(TextField)`
 
   textarea,
   input {
-    font-family: "Dancing Script", cursive;
+    font-family: 'Dancing Script', cursive;
   }
   textarea {
     font-size: 20px;
@@ -47,17 +48,17 @@ const SubmitButton = styled(Button)`
 
 export function LettersNewForm() {
   const history = useHistory();
-  const [title, setTitle] = useState("");
-  const [titleError, setTitleError] = useState("");
-  const [body, setBody] = useState("");
-  const [bodyError, setBodyError] = useState("");
-  const [email, setEmail] = useState("");
-  const [emailError, setEmailError] = useState("");
+  const [title, setTitle] = useState('');
+  const [titleError, setTitleError] = useState('');
+  const [body, setBody] = useState('');
+  const [bodyError, setBodyError] = useState('');
+  const [email, setEmail] = useState('');
+  const [emailError, setEmailError] = useState('');
   const [submitLoading, setSubmitLoading] = useState(false);
 
   const cleanErrors = () => {
-    setBodyError("");
-    setTitleError("");
+    setBodyError('');
+    setTitleError('');
   };
 
   const onSubmit = async (e: FormEvent) => {
@@ -69,10 +70,10 @@ export function LettersNewForm() {
     const bodyClean = body.trim();
     const emailClean = email.trim();
     if (!titleClean) {
-      return setTitleError("Toda carta necesita un título");
+      return setTitleError('Toda carta necesita un título');
     }
     if (!bodyClean) {
-      return setBodyError("Olvidaste completar la carta!");
+      return setBodyError('Olvidaste completar la carta!');
     }
 
     // Submit
@@ -85,7 +86,7 @@ export function LettersNewForm() {
 
     const response = await letterCreate(letter);
     if (response.ok) {
-      document.cookie = "letter_submitted=true";
+      document.cookie = 'letter_submitted=true';
       // Reload page so that the cookie is picked by route page component
       window.location.reload();
     }
@@ -94,9 +95,9 @@ export function LettersNewForm() {
       const { error } = await response.json();
       error.details.forEach((error: JoiError) => {
         switch (error.context.key) {
-          case "title":
+          case 'title':
             return setTitleError(error.message);
-          case "body":
+          case 'body':
             return setBodyError(error.message);
         }
       });
@@ -106,17 +107,18 @@ export function LettersNewForm() {
 
   return (
     <Form noValidate autoComplete="off" onSubmit={onSubmit}>
+      <Indications />
       <LetterTextField
         label="Título de tu carta *"
         variant="outlined"
         value={title}
         onChange={e => {
           setTitle(e.target.value);
-          setTitleError("");
+          setTitleError('');
         }}
         error={!!titleError}
         helperText={titleError}
-        onKeyPress={e => e.key === "Enter" && e.preventDefault()}
+        onKeyPress={e => e.key === 'Enter' && e.preventDefault()}
       />
       <LetterTextField
         label="Tu carta *"
@@ -127,7 +129,7 @@ export function LettersNewForm() {
         value={body}
         onChange={e => {
           setBody(e.target.value);
-          setBodyError("");
+          setBodyError('');
         }}
         error={!!bodyError}
         helperText={bodyError}
@@ -138,9 +140,9 @@ export function LettersNewForm() {
         value={email}
         onChange={e => {
           setEmail(e.target.value);
-          setEmailError("");
+          setEmailError('');
         }}
-        onKeyPress={e => e.key === "Enter" && e.preventDefault()}
+        onKeyPress={e => e.key === 'Enter' && e.preventDefault()}
         error={!!emailError}
         helperText={emailError}
       />
@@ -150,11 +152,15 @@ export function LettersNewForm() {
         type="submit"
         size="large"
         startIcon={
-          submitLoading ? <CircularProgress color="secondary" size="20px" /> : <SendIcon />
+          submitLoading ? (
+            <CircularProgress color="secondary" size="20px" />
+          ) : (
+            <SendIcon />
+          )
         }
         disabled={submitLoading}
       >
-        {submitLoading ? "Mandando carta" : "Mandar carta"}
+        {submitLoading ? 'Mandando carta' : 'Mandar carta'}
       </SubmitButton>
     </Form>
   );

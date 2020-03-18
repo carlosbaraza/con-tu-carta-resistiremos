@@ -15,7 +15,6 @@ const Container = styled.div`
 const InnerContainer = styled.div`
   display: flex;
   flex-direction: column;
-  padding-top: ${theme.spacing.xl};
   padding-bottom: ${theme.spacing.xl};
 `;
 
@@ -67,6 +66,8 @@ const ButtonContent = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  text-align: center;
+
   > * + * {
     margin-left: ${theme.spacing.m} !important;
   }
@@ -131,6 +132,14 @@ export const HomePage = (props: Props) => {
               <CreateIcon />
               <span>Escribe tu carta</span>
             </ButtonContent>
+          </CTA>
+          <CTA
+            color="default"
+            variant="contained"
+            component={Link}
+            to="/cartas"
+          >
+            <ButtonContent>Otras cartas anónimas</ButtonContent>
           </CTA>
           <SectionRow>
             <Card>
