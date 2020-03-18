@@ -10,7 +10,7 @@ import { theme } from '../../theme/theme';
 import { LetterPublic } from '../../types';
 
 const Card = styled(MUCard)`
-  width: 300px;
+  width: 100%;
   flex-basis: 100%;
 
   & + & {
@@ -18,7 +18,6 @@ const Card = styled(MUCard)`
   }
 
   @media (min-width: 768px) {
-    flex-basis: auto;
     margin: ${theme.spacing.m};
   }
 `;
@@ -54,11 +53,23 @@ type Props = {
 };
 
 export function Letter(props: Props) {
+  const date = new Date(props.letter.createdAt);
+  let dateString;
+  try {
+    dateString = date.toLocaleDateString('es-ES', {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric'
+    });
+  } catch (e) {
+    dateString = `${date.getFullYear()}/${date.getMonth()}/${date.getDay()}`;
+  }
+
   return (
     <Card>
       <CardContent>
         <Typography component={DateTitle} color="textSecondary" gutterBottom>
-          14 Marzo 2020
+          {dateString}
         </Typography>
         <Typography variant="h5" component={Title}>
           {props.letter.title}
@@ -67,9 +78,9 @@ export function Letter(props: Props) {
           {props.letter.body}
         </Typography>
       </CardContent>
-      <CardActions>
+      {/* <CardActions>
         <Button size="small">Leer carta</Button>
-      </CardActions>
+      </CardActions> */}
     </Card>
   );
 }
