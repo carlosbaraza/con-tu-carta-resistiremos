@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { Layout } from "../components/Layout/Layout";
+import { AppFrame } from "../components/AppFrame/AppFrame";
 import { Typography } from "@material-ui/core";
 
 const Container = styled.div`
@@ -11,7 +11,7 @@ type Props = {};
 
 export const LettersNew = (props: Props) => {
   return (
-    <Layout>
+    <AppFrame>
       <Container>
         <Typography paragraph>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
@@ -37,6 +37,6 @@ export const LettersNew = (props: Props) => {
           accumsan lacus vel facilisis. Nulla posuere sollicitudin aliquam ultrices sagittis orci a.
         </Typography>
       </Container>
-    </Layout>
+    </AppFrame>
   );
 };

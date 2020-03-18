@@ -62,7 +62,7 @@ interface ResponsiveDrawerProps {
   children: ReactNode;
 }
 
-export function Layout(props: ResponsiveDrawerProps) {
+export function AppFrame(props: ResponsiveDrawerProps) {
   const { container } = props;
   const classes = useStyles();
   const theme = useTheme();
