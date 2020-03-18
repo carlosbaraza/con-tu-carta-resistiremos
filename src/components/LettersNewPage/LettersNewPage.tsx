@@ -1,8 +1,9 @@
-import React from "react";
-import styled from "styled-components";
-import { AppFrame } from "../AppFrame/AppFrame";
-import { Typography } from "@material-ui/core";
-import { LettersNewForm } from "./LettersNewForm";
+import React from 'react';
+import styled from 'styled-components';
+import { AppFrame } from '../AppFrame/AppFrame';
+import { Typography } from '@material-ui/core';
+import { LettersNewForm } from './LettersNewForm';
+import { ThankYou } from './ThankYou';
 
 const Container = styled.div`
   flex: 1;
@@ -11,9 +12,11 @@ const Container = styled.div`
 type Props = {};
 
 export const LettersNewPage = (props: Props) => {
+  const isSubmittedAlready = document.cookie.includes('letter_submitted=true');
+
   return (
     <Container>
-      <LettersNewForm />
+      {isSubmittedAlready ? <ThankYou /> : <LettersNewForm />}
     </Container>
   );
 };
