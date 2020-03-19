@@ -4,8 +4,9 @@ import { Letter } from '../Letter/Letter';
 import { letterList } from '../../service/letters';
 import { CircularProgress } from '@material-ui/core';
 import { LetterPublic } from '../../types';
-import SentimentVeryDissatisfiedIcon from '@material-ui/icons/SentimentVeryDissatisfied';
+import SentimentVerySatisfiedIcon from '@material-ui/icons/SentimentVerySatisfied';
 import { theme } from '../../theme/theme';
+import { useLetters } from '../../utils/hooks/letters';
 
 const Container = styled.div`
   display: flex;
@@ -13,7 +14,7 @@ const Container = styled.div`
   justify-content: center;
 `;
 
-const SadIcon = styled(SentimentVeryDissatisfiedIcon)`
+const SadIcon = styled(SentimentVerySatisfiedIcon)`
   font-size: 100px;
   opacity: 0.3;
 `;
@@ -32,18 +33,7 @@ const NoItemsContainer = styled.div`
 type Props = {};
 
 export const LettersListPage = (props: Props) => {
-  const [loading, setLoading] = useState(true);
-  const [letters, setLetters] = useState<LetterPublic[] | null>(null);
-
-  useEffect(() => {
-    async function getData() {
-      const response = await letterList();
-      const data = await response.json();
-      setLetters(data);
-      setLoading(false);
-    }
-    getData();
-  }, []);
+  const { data: letters, loading } = useLetters();
 
   return (
     <Container>
@@ -54,7 +44,7 @@ export const LettersListPage = (props: Props) => {
       ) : (
         <NoItemsContainer>
           <SadIcon />
-          <span>Aun no hemos publicado ninguna carta en la web.</span>
+          <span>¡Estamos revisando las cartas y las publicaremos pronto!</span>
         </NoItemsContainer>
       )}
     </Container>

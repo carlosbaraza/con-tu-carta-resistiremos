@@ -1,27 +1,42 @@
-import React, { ReactNode } from 'react';
 import AppBar from '@material-ui/core/AppBar';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Divider from '@material-ui/core/Divider';
 import Drawer from '@material-ui/core/Drawer';
 import Hidden from '@material-ui/core/Hidden';
 import IconButton from '@material-ui/core/IconButton';
-import AccountCircle from '@material-ui/icons/AccountCircle';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-import MailIcon from '@material-ui/icons/Mail';
-import MenuIcon from '@material-ui/icons/Menu';
-import CreateIcon from '@material-ui/icons/Create';
+import {
+  createStyles,
+  makeStyles,
+  Theme,
+  useTheme
+} from '@material-ui/core/styles';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
-import {
-  makeStyles,
-  useTheme,
-  Theme,
-  createStyles
-} from '@material-ui/core/styles';
-import { useLocation, NavLink } from 'react-router-dom';
+import AccountCircle from '@material-ui/icons/AccountCircle';
+import CreateIcon from '@material-ui/icons/Create';
+import MailIcon from '@material-ui/icons/Mail';
+import MeetingRoomIcon from '@material-ui/icons/MeetingRoom';
+import MenuIcon from '@material-ui/icons/Menu';
+import React, { ReactNode } from 'react';
+import { NavLink, useLocation } from 'react-router-dom';
+import { signOut } from '../../utils/firebase';
+import { useUser } from '../../utils/hooks/user';
+import { useFirebaseReady } from '../../utils/hooks/firebase';
+import { CircularProgress } from '@material-ui/core';
+import styled from 'styled-components';
+import { theme } from '../../theme/theme';
+
+const LoadingScreen = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding-top: ${theme.spacing.xl};
+  width: 100%;
+`;
 
 const drawerWidth = 240;
 
@@ -74,8 +89,13 @@ export function AppFrame(props: ResponsiveDrawerProps) {
   const theme = useTheme();
   const [mobileOpen, setMobileOpen] = React.useState(false);
   const location = useLocation();
+  const user = useUser();
+  const firebaseReady = useFirebaseReady();
 
   let title = '';
+  if (location.pathname.includes('/login')) {
+    title = 'Login';
+  }
   if (location.pathname.includes('/cartas')) {
     title = 'Cartas anónimas';
   }
@@ -122,15 +142,36 @@ export function AppFrame(props: ResponsiveDrawerProps) {
           <ListItemText primary="Cartas anónimas" />
         </ListItem>
       </List>
-      {/* <Divider />
+      <Divider />
       <List>
-        <ListItem button>
-          <ListItemIcon>
-            <AccountCircle />
-          </ListItemIcon>
-          <ListItemText primary={"Login"} />
-        </ListItem>
-      </List> */}
+        {user ? (
+          <ListItem
+            button
+            onClick={async () => {
+              await signOut();
+              closeMobileDrawer();
+            }}
+          >
+            <ListItemIcon>
+              <MeetingRoomIcon />
+            </ListItemIcon>
+            <ListItemText primary={'Logout'} />
+          </ListItem>
+        ) : (
+          <ListItem
+            button
+            component={NavLink}
+            to="/login"
+            onClick={closeMobileDrawer}
+            activeClassName="Mui-selected"
+          >
+            <ListItemIcon>
+              <AccountCircle />
+            </ListItemIcon>
+            <ListItemText primary={'Login'} />
+          </ListItem>
+        )}
+      </List>
     </div>
   );
 
@@ -186,7 +227,14 @@ export function AppFrame(props: ResponsiveDrawerProps) {
       </nav>
       <main className={classes.content}>
         <div className={classes.toolbar} />
-        {props.children}
+
+        {firebaseReady ? (
+          props.children
+        ) : (
+          <LoadingScreen>
+            <CircularProgress size="100px" />
+          </LoadingScreen>
+        )}
       </main>
     </div>
   );

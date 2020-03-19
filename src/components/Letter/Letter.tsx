@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import MUCard from '@material-ui/core/Card';
 import MUCardActions from '@material-ui/core/CardActions';
@@ -8,6 +8,9 @@ import Typography from '@material-ui/core/Typography';
 import styled from 'styled-components';
 import { theme } from '../../theme/theme';
 import { LetterPublic } from '../../types';
+import { Switch, FormControlLabel, CircularProgress } from '@material-ui/core';
+import { useIsAdmin } from '../../utils/hooks/user';
+import { letterSetApproved } from '../../service/letters';
 
 const Card = styled(MUCard)`
   width: 100%;
@@ -63,6 +66,10 @@ type Props = {
 };
 
 export function Letter(props: Props) {
+  const { letter } = props;
+  const isAdmin = useIsAdmin();
+  const [isApproved, setIsApproved] = useState(props.letter.approved);
+  const [isApprovedLoading, setIsApprovedLoading] = useState(false);
   const date = new Date(props.letter.createdAt);
   let dateString;
   try {
@@ -74,6 +81,13 @@ export function Letter(props: Props) {
   } catch (e) {
     dateString = `${date.getFullYear()}/${date.getMonth()}/${date.getDay()}`;
   }
+
+  const toggleApproved = async () => {
+    setIsApproved(!isApproved);
+    setIsApprovedLoading(true);
+    const response = await letterSetApproved(letter._id, !isApproved);
+    setIsApprovedLoading(false);
+  };
 
   return (
     <Card>
@@ -88,9 +102,23 @@ export function Letter(props: Props) {
           {props.letter.body}
         </Typography>
       </CardContent>
-      {/* <CardActions>
-        <Button size="small">Leer carta</Button>
-      </CardActions> */}
+      {isAdmin && (
+        <CardActions>
+          <FormControlLabel
+            control={
+              <Switch
+                checked={isApproved}
+                onChange={toggleApproved}
+                name="checkedA"
+                disabled={isApprovedLoading}
+              />
+            }
+            label={
+              isApprovedLoading ? <CircularProgress size="24px" /> : 'Aprobada'
+            }
+          />
+        </CardActions>
+      )}
     </Card>
   );
 }

@@ -15,6 +15,7 @@ import { HomePage } from './components/HomePage/HomePage';
 import { LettersListPage } from './components/LettersListPage/LettersListPage';
 import ReactGA from 'react-ga';
 import { createBrowserHistory } from 'history';
+import { LoginPage } from './components/LoginPage/LoginPage';
 
 ReactGA.initialize('UA-161162516-1');
 
@@ -38,6 +39,9 @@ function App() {
           <Route>
             <AppFrame>
               <Switch>
+                <Route exact path="/login">
+                  <LoginPage />
+                </Route>
                 <Route exact path="/cartas">
                   <LettersListPage />
                 </Route>
