@@ -45,19 +45,19 @@ const DateTitle = styled.span`
 `;
 
 const Title = styled.h2`
-  font-family: 'Dancing Script', cursive !important;
+  font-family: 'Indie Flower', cursive !important;
   font-weight: bold !important;
   font-size: ${theme.font.size.s6} !important;
 `;
 
 const Body = styled.p`
-  font-family: 'Dancing Script', cursive !important;
-  font-size: ${theme.font.size.s2} !important;
+  font-family: 'Indie Flower', cursive !important;
+  font-size: ${theme.font.size.s4} !important;
   white-space: pre-wrap !important;
   line-height: 1.5 !important;
 
   @media (min-width: 768px) {
-    font-size: ${theme.font.size.s3};
+    font-size: ${theme.font.size.s4} !important;
   }
 `;
 

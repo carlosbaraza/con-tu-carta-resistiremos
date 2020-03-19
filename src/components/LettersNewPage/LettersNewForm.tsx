@@ -35,7 +35,7 @@ const LetterTextField = styled(TextField)`
 
   textarea,
   input {
-    font-family: 'Dancing Script', cursive;
+    font-family: 'Indie Flower', cursive;
   }
   textarea {
     font-size: 20px;
