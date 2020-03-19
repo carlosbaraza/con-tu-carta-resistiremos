@@ -33,17 +33,16 @@ const SubmitButton = styled(Button)`
 
 export function LoginPage() {
   const user = useUser();
-  console.log(user);
   const [password, setPassword] = useState('');
   const [passwordError, setPasswordError] = useState('');
-  const [email, setEmail] = useState('');
-  const [emailError, setEmailError] = useState('');
+  const [email /*, setEmail*/] = useState('admin@baraza.io');
+  //   const [emailError, setEmailError] = useState('');
   const [submitLoading, setSubmitLoading] = useState(false);
   const [error, setError] = useState('');
 
   const cleanErrors = () => {
     setPasswordError('');
-    setEmailError('');
+    // setEmailError('');
     setError('');
   };
 
@@ -51,11 +50,11 @@ export function LoginPage() {
     event.preventDefault();
     cleanErrors();
 
-    const cleanEmail = email.trim();
+    // const cleanEmail = email.trim();
 
-    if (!cleanEmail) {
-      return setEmailError('El email es obligatorio');
-    }
+    // if (!cleanEmail) {
+    //   return setEmailError('El email es obligatorio');
+    // }
     if (!password) {
       return setPasswordError('La contraseña es obligatoria');
     }
@@ -77,7 +76,7 @@ export function LoginPage() {
           {error}
         </Alert>
       </Collapse>
-
+      {/* 
       <TextField
         label="Email *"
         variant="outlined"
@@ -89,7 +88,7 @@ export function LoginPage() {
         error={!!emailError}
         helperText={emailError}
         onKeyPress={e => e.key === 'Enter' && e.preventDefault()}
-      />
+      /> */}
       <TextField
         label="Contraseña *"
         variant="outlined"
