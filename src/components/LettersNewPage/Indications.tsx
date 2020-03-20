@@ -26,7 +26,7 @@ export default function Indications() {
   return (
     <Container>
       <Heading>
-        Antes de nada, nos gustaría recordarte como escribir una carta a un
+        Antes de nada, nos gustaría recordarte cómo escribir una carta a un
         enfermo.
       </Heading>
 
@@ -36,12 +36,12 @@ export default function Indications() {
           aria-controls="panel1a-content"
           id="panel1a-header"
         >
-          <ExpansionTitle>Presentate</ExpansionTitle>
+          <ExpansionTitle>Preséntate</ExpansionTitle>
         </ExpansionPanelSummary>
         <ExpansionPanelDetails>
           <Typography>
-            Presentate. Escribe unas breves lineas dandole algun dato sobre ti y
-            tu situacion actual. Cuentale como estas viviendo esta situacion
+            Preséntate. Escribe unas breves líneas dándole algún dato sobre tí y
+            tu situación actual. Cuéntale cómo estás viviendo esta situación
             desde casa. Enfoca la carta en el presente.
           </Typography>
         </ExpansionPanelDetails>
@@ -57,7 +57,7 @@ export default function Indications() {
         <ExpansionPanelDetails>
           <Typography>
             Evita hablar del futuro, es decir, no utilices frases como "te
-            pondras bien, todo acabara pronto, cuando salgas..." Hay que tener
+            pondrás bien, todo acabará pronto, cuando salgas..." Hay que tener
             presente que no todos se recuperan.
           </Typography>
         </ExpansionPanelDetails>
@@ -68,11 +68,11 @@ export default function Indications() {
           aria-controls="panel1a-content"
           id="panel1a-header"
         >
-          <ExpansionTitle>Envia animo</ExpansionTitle>
+          <ExpansionTitle>Envía ánimo</ExpansionTitle>
         </ExpansionPanelSummary>
         <ExpansionPanelDetails>
           <Typography>
-            Envia animo y mensajes que hagan sentir valiosa a la persona.
+            Envía ánimo y mensajes que hagan sentir valiosa a la persona.
           </Typography>
         </ExpansionPanelDetails>
       </ExpansionPanel>

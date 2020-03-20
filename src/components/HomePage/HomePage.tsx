@@ -139,7 +139,7 @@ export const HomePage = (props: Props) => {
             component={Link}
             to="/cartas"
           >
-            <ButtonContent>Otras cartas anónimas</ButtonContent>
+            <ButtonContent>Leer cartas anónimas</ButtonContent>
           </CTA>
           <SectionRow>
             <Card>
@@ -188,7 +188,7 @@ export const HomePage = (props: Props) => {
             component={Link}
             to="/cartas"
           >
-            <ButtonContent>Otras cartas anónimas</ButtonContent>
+            <ButtonContent>Leer cartas anónimas</ButtonContent>
           </CTA>
           <CTA
             color="secondary"
